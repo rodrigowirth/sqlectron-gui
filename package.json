@@ -9,7 +9,7 @@
     "clean:osx": "rimraf dist/Sqlectron-darwin-*",
     "clean:win": "rimraf dist/win* dist/Sqlectron-win*",
     "clean:linux": "rimraf dist/Sqlectron-linux-* dist/*.deb",
-    "compile": "rimraf app/out && NODE_ENV=production babel-node scripts/compile.js -v",
+    "compile": "rimraf app/out && babel-node scripts/compile.js -v",
     "build:osx": "npm run clean:osx && build --platform darwin",
     "build:linux": "npm run clean:linux && build --platform linux --arch all",
     "build:win": "npm run clean:win && build --platform win32 --arch all",
