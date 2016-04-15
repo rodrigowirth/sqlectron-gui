@@ -39,6 +39,9 @@ install:
 - npm prune
 - npm install
 script:
+- echo ">>>>>>ls" && ls
+- echo ">>>>>>ls node_modules" && ls node_modules
+- echo ">>>>>>ls node_modules/.bin" && ls node_modules/.bin
 - npm run dist
 branches:
   except:
