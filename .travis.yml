@@ -30,8 +30,10 @@ addons:
     - clang-3.7
 
 before_install:
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then echo ">>>>>" && icns2png --version ; fi
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update ; fi
-- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get -y --reinstall install libopenjpeg5 libjasper1 ; fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get -y --reinstall install libjasper1 ; fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then echo ">>>>>" && icns2png --version ; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install git-lfs; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then git lfs pull; fi
