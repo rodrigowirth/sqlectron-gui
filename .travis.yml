@@ -24,12 +24,12 @@ addons:
     - ubuntu-toolchain-r-test
     - llvm-toolchain-precise-3.7
     packages:
+    - imagemagick
     - libgnome-keyring-dev
     - icnsutils
     - clang-3.7
 
 before_install:
-- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then apt-get install graphicsmagick; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install git-lfs; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then git lfs pull; fi
