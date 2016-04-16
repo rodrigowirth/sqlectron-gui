@@ -28,7 +28,7 @@ addons:
     - libgnome-keyring-dev
     - icnsutils
     - clang-3.7
-    - libopenjpeg5
+    - libjasper1
 
 before_install:
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
