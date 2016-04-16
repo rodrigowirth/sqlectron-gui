@@ -41,7 +41,7 @@ install:
 - npm install
 script:
 - echo ">>>>"
-- which gm
+- gm -version
 - npm run dist
 branches:
   except:
