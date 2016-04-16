@@ -24,7 +24,6 @@ addons:
     - ubuntu-toolchain-r-test
     - llvm-toolchain-precise-3.7
     packages:
-    - imagemagick
     - libgnome-keyring-dev
     - icnsutils
     - clang-3.7
@@ -40,6 +39,7 @@ install:
 - npm prune
 - npm install
 script:
+- echo ">>>>>>>" && which gm
 - npm run dist
 branches:
   except:
