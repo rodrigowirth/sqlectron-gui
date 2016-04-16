@@ -59,7 +59,6 @@
     "eslint-config-airbnb": "^0.1.0",
     "eslint-plugin-react": "^3.15.0",
     "file-loader": "^0.8.5",
-    "gm": "^1.22.0",
     "history": "^1.12.6",
     "html-webpack-plugin": "^1.6.2",
     "imports-loader": "^0.6.5",
