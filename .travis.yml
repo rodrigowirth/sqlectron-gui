@@ -31,8 +31,6 @@ addons:
     - libgnome-keyring-dev
     - clang-3.7
     - icnsutils
-    - libicns-dev
-    - libicns1
 
 before_install:
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
