@@ -13,7 +13,7 @@
     "build:osx": "npm run clean:osx && build --platform darwin",
     "build:linux": "npm run clean:linux && build --platform linux --arch all",
     "build:win": "npm run clean:win && build --platform win32 --arch all",
-    "dist": "npm run compile && build",
+    "dist": "npm run compile && build --arch all",
     "dist:osx": "npm run compile && npm run build:osx",
     "dist:winlinux": "npm run compile && npm run build:linux && npm run build:win"
   },
