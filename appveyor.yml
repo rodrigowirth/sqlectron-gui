@@ -27,8 +27,5 @@ build_script:
   - node --version
   - npm --version
   - npm run dist
-  - ls app
-  - ls app\node_modules
-  - ls app\node_modules\babel
 
 test: off
