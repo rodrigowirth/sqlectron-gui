@@ -19,7 +19,9 @@ install:
   - ps: Install-Product node 5 x64
   - git reset --hard HEAD
   - npm install npm -g
-  - npm install
+  - npm prune
+  - npm update
+  - npm run install-app-deps
 
 build_script:
   - node --version
