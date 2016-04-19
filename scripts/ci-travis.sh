@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -exv
 
 echo "==> ci-travis.sh - OS $TRAVIS_OS_NAME"
