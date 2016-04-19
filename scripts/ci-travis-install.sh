@@ -19,7 +19,7 @@ elif [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
   DOCKER_COMPOSE_VERSION="1.5.2"
 
   sudo apt-get update
-  sudo apt-get install -y linux-image-virtual kernel linux-image-extra-virtual
+  sudo apt-get install -y linux-image-virtual linux-image-extra-virtual
   curl -sSL https://get.docker.com/ | sudo sh
 
   sudo rm /usr/local/bin/docker-compose || echo "No previous docker-compose installed"
