@@ -16,6 +16,7 @@ if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
   npm install
 
 elif [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+  DOCKER_COMPOSE_VERSION="1.5.2"
 
   sudo rm /usr/local/bin/docker-compose || echo "No previous docker-compose installed"
   curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
