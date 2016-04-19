@@ -18,6 +18,7 @@ if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
 elif [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
   DOCKER_COMPOSE_VERSION="1.5.2"
 
+  sudo apt-get update
   sudo apt-get install -y linux-image-virtual kernel linux-image-extra-virtual
   curl -sSL https://get.docker.com/ | sudo sh
 
