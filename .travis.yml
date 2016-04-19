@@ -1,55 +1,72 @@
-sudo: required
+#sudo: required
+#
+#services:
+#  - docker
+#
+#osx_image: xcode7.3
+#
+#language:
+#  - ruby
+#
+#matrix:
+#  include:
+#    - os: linux
+#    - os: osx
+#
+#env:
+#  global:
+#    - DOCKER_COMPOSE_VERSION=1.5.2
+#    - NODE_VERSION=5
+#    # GH_TOKEN
+#    - secure: EpeYT6T82lfJrnQn9QwHDxLRx9iT30yQp8NHIs+rH0T7Yxegm6YRHYr8nLOen/Ny+Kyq9qNeW6D3kelkWsfMADXIQKh7n/vSjXb535+iQeMOUSVQu8PKFzkwDLJIbYKRugVZJ2k+nqsBPqbiG5RiV71ztWgxz4GN28nLnJIYhiCA2yCilITS/WcreHUSAjFUWubQQTCptFHTYTvNKxclw9eps6vwPM0/+KSnbM5SD5O14ZtjairSwj72+RjT3WveAznD2nzqjroKd1r2JZPrRIrQUCj8tKJHilYzWW91IgH9FYJKHjO3VSjv1JiiJrO8LTmur9lArbYBA9pJvbCmg7iXYFUAHMlbKs/yRrIwiMOuKvEX6Mw43YG4zz2X+F5oH1tis8+b1kfehL44gfCNEJtfpJRHEvfafm4WZumar0aZV4xVUYkbYuRj07X/+/kn7Zy9M+obZbVaajh3irCSw79ApSZ0lRciYgVbGE7dHsx6u9CKFKOInONowU2koPkfgTneslmbYpyfRUPQTytYkzfjBFOYj3RFd7ruYr+qdt7ouusKjZmRgO6fNNG8+hYynb/grX8di9sxBSXIuh29EFVNY8uXBVKpyMcJ9AN4TZ/PCMjCfPYxMIyPx9YGE2tTalhuQf1YXT8n72MZGW+7DMWdiGBZzHPZJw2tH9oEtU4=
+#
+#cache:
+#  directories:
+#    - node_modules
+#    - app/node_modules
+#    - $HOME/.electron
+#    - $HOME/.npm
+#
+#before_install:
+#  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
+#  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install git-lfs; fi
+#  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then git lfs pull; fi
+#  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then gem install --no-rdoc --no-ri fpm; fi
+#
+#  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose ; fi
+#  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then chmod +x docker-compose ; fi
+#  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo mv docker-compose /usr/local/bin ; fi
+#
+#install:
+#  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then nvm install $NODE_VERSION ; fi
+#  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm install npm -g ; fi
+#  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm prune ; fi
+#  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm install ; fi
+#
+#
+#script:
+#  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then docker --version ; fi
+#  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then docker-compose --version ; fi
+#  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm run dist ; fi
+#  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then docker-compose run --rm dist ; fi
+#
+#branches:
+#  except:
+#  - /^v\d+\.\d+\.\d+$/
 
+
+sudo: required
 services:
   - docker
 
-osx_image: xcode7.3
-
-language:
-  - ruby
-
-matrix:
-  include:
-    - os: linux
-    - os: osx
-
 env:
-  global:
-    - DOCKER_COMPOSE_VERSION=1.5.2
-    - NODE_VERSION=5
-    # GH_TOKEN
-    - secure: EpeYT6T82lfJrnQn9QwHDxLRx9iT30yQp8NHIs+rH0T7Yxegm6YRHYr8nLOen/Ny+Kyq9qNeW6D3kelkWsfMADXIQKh7n/vSjXb535+iQeMOUSVQu8PKFzkwDLJIbYKRugVZJ2k+nqsBPqbiG5RiV71ztWgxz4GN28nLnJIYhiCA2yCilITS/WcreHUSAjFUWubQQTCptFHTYTvNKxclw9eps6vwPM0/+KSnbM5SD5O14ZtjairSwj72+RjT3WveAznD2nzqjroKd1r2JZPrRIrQUCj8tKJHilYzWW91IgH9FYJKHjO3VSjv1JiiJrO8LTmur9lArbYBA9pJvbCmg7iXYFUAHMlbKs/yRrIwiMOuKvEX6Mw43YG4zz2X+F5oH1tis8+b1kfehL44gfCNEJtfpJRHEvfafm4WZumar0aZV4xVUYkbYuRj07X/+/kn7Zy9M+obZbVaajh3irCSw79ApSZ0lRciYgVbGE7dHsx6u9CKFKOInONowU2koPkfgTneslmbYpyfRUPQTytYkzfjBFOYj3RFd7ruYr+qdt7ouusKjZmRgO6fNNG8+hYynb/grX8di9sxBSXIuh29EFVNY8uXBVKpyMcJ9AN4TZ/PCMjCfPYxMIyPx9YGE2tTalhuQf1YXT8n72MZGW+7DMWdiGBZzHPZJw2tH9oEtU4=
-
-cache:
-  directories:
-    - node_modules
-    - app/node_modules
-    - $HOME/.electron
-    - $HOME/.npm
+  COMPOSE_VERSION: 1.5.2
 
 before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install git-lfs; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then git lfs pull; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then gem install --no-rdoc --no-ri fpm; fi
-
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then chmod +x docker-compose ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo mv docker-compose /usr/local/bin ; fi
-
-install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then nvm install $NODE_VERSION ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm install npm -g ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm prune ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm install ; fi
-
+ - curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+ - chmod +x docker-compose
+ - sudo mv docker-compose /usr/local/bin
 
 script:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then docker --version ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then docker-compose --version ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm run dist ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then docker-compose run --rm dist ; fi
-
-branches:
-  except:
-  - /^v\d+\.\d+\.\d+$/
+  - docker-compose build
+  - docker-compose run dist
