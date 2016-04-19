@@ -28,22 +28,7 @@ cache:
     - $HOME/.npm
 
 before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install git-lfs; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then git lfs pull; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then gem install --no-rdoc --no-ri fpm; fi
-
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo rm /usr/local/bin/docker-compose || echo "No previous docker-compose installed" ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then chmod +x docker-compose ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo mv docker-compose /usr/local/bin ; fi
-
-install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; nvm install $NODE_VERSION ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; npm install npm -g ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; npm prune ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; npm install ; fi
-
+  - ./scripts/ci-travis.sh
 
 script:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; npm run dist ; fi
