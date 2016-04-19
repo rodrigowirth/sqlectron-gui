@@ -1,7 +1,7 @@
 #!/bin/bash
 set -exv
 
-echo "==> ci-travis.sh - OS $TRAVIS_OS_NAME"
+echo "==> ci-travis-install.sh - OS $TRAVIS_OS_NAME"
 
 if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
 

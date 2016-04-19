@@ -28,11 +28,10 @@ cache:
     - $HOME/.npm
 
 before_install:
-  - ./scripts/ci-travis.sh
+  - ./scripts/ci-travis-install.sh
 
 script:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; npm run dist ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; docker-compose run --rm dist ; fi
+  - ./scripts/ci-travis-dist.sh
 
 branches:
   except:
