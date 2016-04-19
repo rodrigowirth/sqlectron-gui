@@ -8,5 +8,6 @@ dist:
     # Keep the tmp folder inside the project.
     # This way we dont lose some cache files between distribution tasks
     TMPDIR: /usr/src/app/.tmp
+    GH_TOKEN: # env from the host
   volumes:
     - .:/usr/src/app
