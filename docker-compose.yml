@@ -1,4 +1,4 @@
-dist:
+local:
   image: maxcnunes/electron-distribution:eb3node4-onbuild
   # Build all and pack only for Windows
   # because is not possible packing for OSX from Linux.
@@ -11,3 +11,9 @@ dist:
     GH_TOKEN: # env from the host
   volumes:
     - .:/usr/src/app
+
+
+dist:
+  build: .
+  environment:
+    GH_TOKEN: # env from the host
